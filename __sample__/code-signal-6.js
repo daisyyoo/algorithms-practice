@@ -1,8 +1,8 @@
 function solution(statues) {
   let smallest = statues[0];
-  let largest = statues[1];
+  let largest = 0;
   let result = 0;
-  for (let i = 1; i < statues.length; i++) {
+  for (let i = 0; i < statues.length; i++) {
     if (statues[i] < smallest) {
       smallest = statues[i];
     } else if (statues[i] > largest) {
@@ -12,8 +12,8 @@ function solution(statues) {
   while (smallest < largest) {
     if (!(statues.includes(smallest + 1))) {
       result++;
-      smallest++;
     }
+    smallest++;
   }
   return result;
 }
