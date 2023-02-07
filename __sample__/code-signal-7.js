@@ -1,5 +1,18 @@
-// function solution(sequence) {
+// test to see if all of the numbers in the array are less than the last num
+// declare a variable of the first number in array
+// test to see if the next num in array is larger than the previous array just declared
+// if so, then have the variable reassigned as the value of the next num
+// if not, you can increment a variable, declared elsewhere.
+// have the for loop exit and return false when the variable ^ declared is larger than 1
+// if not, then at the end of the for loop, return true.
 
+// function solution(sequence) {
+//   const lastNum = sequence[sequence.length - 1];
+//   for (let i = 0; i < sequence.length; i++) {
+//     if (sequence[i] < lastNum) {
+
+//     }
+//   }
 // }
 
 // Given a sequence of integers as an array, determine whether it is possible
