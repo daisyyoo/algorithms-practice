@@ -6,14 +6,30 @@
 // have the for loop exit and return false when the variable ^ declared is larger than 1
 // if not, then at the end of the for loop, return true.
 
-// function solution(sequence) {
-//   const lastNum = sequence[sequence.length - 1];
-//   for (let i = 0; i < sequence.length; i++) {
-//     if (sequence[i] < lastNum) {
-
-//     }
-//   }
-// }
+function solution(sequence) {
+  const lastNum = sequence[sequence.length - 1];
+  let smallNum = sequence[0];
+  let errorCount = 0;
+  for (let i = 1; i < sequence.length; i++) {
+    // if (sequence[i] <= smallNum) {
+    //   return false;
+    // }
+    if (sequence[i] > smallNum && sequence[i] < lastNum) {
+      smallNum = sequence[i];
+    }
+    if (sequence[i] > smallNum && sequence[i] > lastNum) {
+      errorCount++;
+      smallNum = sequence[i];
+    }
+  }
+  if (errorCount === 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+const sequence = [1, 3, 2];
+solution(sequence);
 
 // Given a sequence of integers as an array, determine whether it is possible
 // to obtain a strictly increasing sequence by removing no more than one element
