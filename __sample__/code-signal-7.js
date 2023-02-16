@@ -15,7 +15,11 @@ function solution(sequence) {
     return true;
   }
 
-  if (smallNum > lastNum) {
+  if (smallNum > lastNum && sequence.length < 4) {
+    errorCount++;
+  }
+
+  if (smallNum > lastNum && sequence.length > 4) {
     errorCount++;
     sequence = sequence.slice(1);
     smallNum = sequence[0];
@@ -45,7 +49,7 @@ function solution(sequence) {
     return false;
   }
 }
-const sequence = [3, 5, 67, 98, 3];
+const sequence = [6, 5, 4];
 solution(sequence);
 
 // Given a sequence of integers as an array, determine whether it is possible
