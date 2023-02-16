@@ -32,6 +32,8 @@ function solution(sequence) {
       errorCount++;
     } else if (sequence[i] < lastNum && sequence[i] > smallNum) {
       smallNum = sequence[i];
+    } else if (sequence[i] < lastNum && sequence[i] < smallNum) {
+      errorCount++;
     } else if (sequence[i] === smallNum || sequence[i] === lastNum) {
       errorCount++;
     }
