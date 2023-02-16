@@ -7,28 +7,43 @@
 // if not, then at the end of the for loop, return true.
 
 function solution(sequence) {
-  const lastNum = sequence[sequence.length - 1];
+  let lastNum = sequence[sequence.length - 1];
   let smallNum = sequence[0];
   let errorCount = 0;
-  for (let i = 1; i < sequence.length; i++) {
-    // if (sequence[i] <= smallNum) {
-    //   return false;
-    // }
-    if (sequence[i] > smallNum && sequence[i] < lastNum) {
-      smallNum = sequence[i];
-    }
-    if (sequence[i] > smallNum && sequence[i] > lastNum) {
+
+  if (sequence.length === 2) {
+    return true;
+  }
+
+  if (smallNum > lastNum) {
+    errorCount++;
+    sequence = sequence.slice(1);
+    smallNum = sequence[0];
+  }
+
+  if (smallNum === lastNum) {
+    errorCount++;
+    sequence = sequence.slice(0, (sequence.length - 1));
+    lastNum = sequence[sequence.length - 1];
+  }
+
+  for (let i = 1; i < sequence.length - 1; i++) {
+    if (sequence[i] > lastNum) {
       errorCount++;
+    } else if (sequence[i] < lastNum && sequence[i] > smallNum) {
       smallNum = sequence[i];
+    } else if (sequence[i] === smallNum || sequence[i] === lastNum) {
+      errorCount++;
     }
   }
+
   if (errorCount === 1) {
     return true;
   } else {
     return false;
   }
 }
-const sequence = [1, 3, 2];
+const sequence = [3, 5, 67, 98, 3];
 solution(sequence);
 
 // Given a sequence of integers as an array, determine whether it is possible
