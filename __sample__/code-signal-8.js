@@ -1,6 +1,34 @@
-// function solution(matrix) {
+function solution(matrix) {
 
-// }
+  const indexArray = [];
+  const sumArray = [];
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (j === 0) {
+        if (matrix[i][j] === 0) {
+          indexArray.push(j);
+        } else {
+          sumArray.push(matrix[i][j]);
+        }
+      }
+      if (matrix[i][j] === 0) {
+        indexArray.push(j);
+      } else if (!indexArray.includes(j)) {
+        sumArray.push(matrix[i][j]);
+      }
+    }
+  }
+  const initialValue = 0;
+  const total = sumArray.reduce((x, y) => x + y, initialValue);
+
+  return total;
+}
+
+const matrix = [[0, 1, 1, 2],
+  [0, 5, 0, 0],
+  [2, 0, 3, 3]];
+solution(matrix);
 
 // should equal to:
 
